@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
 }
 
 body {
@@ -70,27 +70,47 @@ h1 {
 }
 
 #responseContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.response-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.question-box {
+    background-color: #f0f0f0;
+    border: 2px solid #1e90ff;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: black;
+    max-width: 600px;
+    text-align: left; /* Change from center to left */
 }
 
 .response-card {
-  position: relative;
-  background-color: #fffdf5;
-  margin-top: 20px;
-  padding: 40px 30px 20px 30px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: 'Courier New', Courier, monospace;
-  line-height: 1.6;
-  background-image: linear-gradient(to bottom, #f9f9f9 35px, transparent 35px);
-  background-size: 100% 40px;
-  overflow-x: auto;
-  word-wrap: break-word;
+    position: relative;
+    background-color: #fffdf5;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-top: 15px;
+    text-align: left; /* Change from center to left */
 }
+
 
 .response-card pre {
   white-space: pre-wrap;
@@ -120,6 +140,40 @@ h1 {
   transition: background 0.2s;
 }
 
+#thinkingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 20px auto;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border-radius: 50%;
+    animation: waveMotion 1.5s infinite ease-in-out;
+}
+
+/* Staggered delays for wave motion */
+.dot:nth-child(1) { animation-delay: 0s; }
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes waveMotion {
+    0% { transform: translateY(0); opacity: 0.8; }
+    50% { transform: translateY(-8px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.8; }
+}
+
+.user-question {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: black;
+}
+
 .copy-btn:hover {
   background-color: rgba(30, 144, 255, 0.1);
 }
@@ -128,4 +182,3 @@ h1 {
   width: 16px;
   height: 16px;
 }
-
