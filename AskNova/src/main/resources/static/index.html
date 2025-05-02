@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AskNova</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<h1>What can I help with?</h1>
+
+<div class="input-box">
+    <input type="text" id="questionInput" placeholder="Ask anything..." />
+    <button class="btn" onclick="sendQuestion()">Search</button>
+</div>
+
+<p class="rate-limit-note">Note: You can only ask up to 7 questions per minute.</p>
+
+<div id="responseContainer"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
