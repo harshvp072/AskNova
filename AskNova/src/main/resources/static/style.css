@@ -5,18 +5,8 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-.rate-limit-note {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  margin-top: 10px;
-  text-align: center;
-}
-
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: url("two.jpg") no-repeat center center fixed;
   background-size: cover;
   display: flex;
@@ -69,10 +59,27 @@ h1 {
   background-color: #0077e6;
 }
 
+.rate-limit-note {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#responseContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .response-card {
+  position: relative;
   background-color: #fffdf5;
   margin-top: 20px;
-  padding: 20px 30px;
+  padding: 40px 30px 20px 30px;
   border-radius: 12px;
   width: 90%;
   max-width: 600px;
@@ -81,39 +88,44 @@ h1 {
   line-height: 1.6;
   background-image: linear-gradient(to bottom, #f9f9f9 35px, transparent 35px);
   background-size: 100% 40px;
-  overflow-x: auto; /* Add horizontal scrolling if needed */
+  overflow-x: auto;
   word-wrap: break-word;
 }
 
 .response-card pre {
-  white-space: pre-wrap; /* Wrap long lines */
-  word-break: break-word; /* Break long words */
+  white-space: pre-wrap;
+  word-break: break-word;
   overflow-wrap: break-word;
-  margin: 0; /* Prevent spacing issues */
+  margin: 0;
 }
 
+.response-card:last-child {
+  margin-bottom: 60px;
+}
 
 .copy-btn {
-  float: right;
-  background-color: #1e90ff;
-  color: white;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  justify-content: center;
+  background-color: transparent;
   border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  transition: background 0.2s;
 }
 
 .copy-btn:hover {
-  background-color: #0077e6;
+  background-color: rgba(30, 144, 255, 0.1);
 }
 
-
-#responseContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+.copy-btn svg {
+  width: 16px;
+  height: 16px;
 }
-
 

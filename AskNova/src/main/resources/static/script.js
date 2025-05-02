@@ -18,23 +18,34 @@ async function sendQuestion() {
   }
 
   const container = document.getElementById('responseContainer');
-  container.innerHTML = `
-    <div class="response-card">
-      <button class="copy-btn" onclick="copyAnswer()">Copy</button>
-      <div id="answerText">${marked.parse(answer)}</div>
-    </div>
+  container.innerHTML = ""; // Clear previous
+
+  const card = document.createElement('div');
+  card.className = 'response-card';
+
+  const copyBtn = document.createElement('button');
+  copyBtn.className = 'copy-btn';
+  copyBtn.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="16" height="16" viewBox="0 0 16 16">
+      <path d="M10 1.5v1a.5.5 0 0 0 .5.5h1A1.5 1.5 0 0 1 13 4v9a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 3 13V4a1.5 1.5 0 0 1 1.5-1.5h1a.5.5 0 0 0 .5-.5v-1h4zm-1 1h-2v1h2V2.5z"/>
+      <path d="M3 4v9a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V4h-1a1.5 1.5 0 0 1-1.5-1.5h-2A1.5 1.5 0 0 1 5 4H3z"/>
+    </svg>
   `;
 
+
+
+  const content = document.createElement('div');
+  content.innerHTML = marked.parse(answer);
+
+  card.appendChild(copyBtn);
+  card.appendChild(content);
+  container.appendChild(card);
 
   input.value = "";
 }
 
-// ✅ Move this function outside sendQuestion
-function copyAnswer() {
-  const text = document.getElementById('answerText').innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    alert("Answer copied to clipboard!");
-  }).catch(() => {
-    alert("Failed to copy.");
-  });
+function stripHTML(html) {
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = html;
+  return tempDiv.textContent || tempDiv.innerText || "";
 }
