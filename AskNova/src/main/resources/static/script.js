@@ -19,8 +19,22 @@ async function sendQuestion() {
 
   const container = document.getElementById('responseContainer');
   container.innerHTML = `
-    <div class="response-card">${answer}</div>
+    <div class="response-card">
+      <button class="copy-btn" onclick="copyAnswer()">Copy</button>
+      <div id="answerText">${marked.parse(answer)}</div>
+    </div>
   `;
 
+
   input.value = "";
+}
+
+// ✅ Move this function outside sendQuestion
+function copyAnswer() {
+  const text = document.getElementById('answerText').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Answer copied to clipboard!");
+  }).catch(() => {
+    alert("Failed to copy.");
+  });
 }

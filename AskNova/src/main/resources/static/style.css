@@ -70,11 +70,50 @@ h1 {
 }
 
 .response-card {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #fffdf5;
   margin-top: 20px;
-  padding: 20px;
-  border-radius: 16px;
+  padding: 20px 30px;
+  border-radius: 12px;
   width: 90%;
   max-width: 600px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6;
+  background-image: linear-gradient(to bottom, #f9f9f9 35px, transparent 35px);
+  background-size: 100% 40px;
+  overflow-x: auto; /* Add horizontal scrolling if needed */
+  word-wrap: break-word;
 }
+
+.response-card pre {
+  white-space: pre-wrap; /* Wrap long lines */
+  word-break: break-word; /* Break long words */
+  overflow-wrap: break-word;
+  margin: 0; /* Prevent spacing issues */
+}
+
+
+.copy-btn {
+  float: right;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.copy-btn:hover {
+  background-color: #0077e6;
+}
+
+
+#responseContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
