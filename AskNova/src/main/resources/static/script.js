@@ -32,17 +32,20 @@ async function sendQuestion() {
 
     const questionBox = document.createElement('div');
     questionBox.className = 'question-box';
-    questionBox.textContent = `Q: ${question}`;
+    questionBox.textContent = question;
 
     const card = document.createElement('div');
     card.className = 'response-card';
 
+    // Append everything correctly
     card.appendChild(content);
     entry.appendChild(questionBox);
     entry.appendChild(card);
-
     container.appendChild(entry);
+
+    // Clear input after submitting
     input.value = "";
+
 }
 
 document.getElementById('questionInput').addEventListener("keypress", function(event) {

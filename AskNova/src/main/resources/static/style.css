@@ -14,6 +14,20 @@ body {
   align-items: center;
   justify-content: flex-start;
   padding-top: 80px;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("two.jpg") no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(5px); /* Adjust blur level */
+  z-index: -1; /* Ensures it stays behind content */
 }
 
 h1 {
@@ -56,17 +70,23 @@ h1 {
 }
 
 .btn:hover {
+
   background-color: #0077e6;
 }
 
 .rate-limit-note {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  margin-top: 10px;
-  text-align: center;
+    color: white;
+    font-size: 0.95rem;
+}
+
+.note-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    text-align: center;
+    margin-top: 15px;
 }
 
 #responseContainer {
@@ -78,6 +98,14 @@ h1 {
     margin-top: 20px;
 }
 
+#thinkingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px; /* Keeps spacing below the note */
+}
+
 .response-entry {
     display: flex;
     flex-direction: column;
@@ -87,28 +115,31 @@ h1 {
 }
 
 .question-box {
-    background-color: #f0f0f0;
-    border: 2px solid #1e90ff;
+    background-color: rgba(255, 255, 255, 0.2); /* Light transparent background */
+    border: 2px solid #ccc; /* Light grey border */
     padding: 15px;
     border-radius: 10px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: black;
-    max-width: 600px;
+    backdrop-filter: blur(6px); /* Adds blur effect to the background */
     text-align: left;
 }
 
+
 .response-card {
-    background-color: #fffdf5;
-    padding: 40px 30px 30px 50px;
+    background-color: rgba(255, 255, 255, 0.2); /* Light transparent background */
+    border: 2px solid #ccc; /* Light grey border */
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: none; /* Removes shadow */
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.6;
+    backdrop-filter: blur(6px); /* Adds blur effect to the background */
     max-width: 600px;
     margin-top: 15px;
     text-align: left;
 }
+
+
+
 
 .response-card pre {
   white-space: pre-wrap;
@@ -118,15 +149,8 @@ h1 {
 }
 
 .response-card:last-child {
-  margin-bottom: 60px;
-}
 
-#thinkingContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin: 20px auto;
+  margin-bottom: 60px;
 }
 
 .dot {
@@ -140,6 +164,7 @@ h1 {
 .dot:nth-child(1) { animation-delay: 0s; }
 .dot:nth-child(2) { animation-delay: 0.2s; }
 .dot:nth-child(3) { animation-delay: 0.4s; }
+.dot:nth-child(4) { animation-delay: 0.6s; }
 
 @keyframes waveMotion {
     0% { transform: translateY(0); opacity: 0.8; }
