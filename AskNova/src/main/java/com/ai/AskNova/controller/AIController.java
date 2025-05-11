@@ -21,6 +21,7 @@ public class AIController {
     public ResponseEntity<String> askQuestions(@RequestBody Map<String,String> payLoad){
         String question = payLoad.get("question");
         String answer = qnAService.getAnswer(question);
+        
         return ResponseEntity.ok(answer);
     }
 }
